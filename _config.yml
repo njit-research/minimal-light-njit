@@ -1,0 +1,49 @@
+# Basic Information 
+title: High Lander
+position: Associate Professor, Department of Something
+affiliation: New Jersey Institute of Technology
+affiliation_link: https://www.njit.edu/
+affiliation_logo: ./assets/img/Logo_NJIT.png
+email: high_lander (at) njit.edu
+
+# Search Engine Optimization (SEO)
+keywords: NJIT Faculty Template
+canonical: https://sites.njit.edu
+description: HighLander is NJIT's mascot 
+
+# The option is used to show the last update time.
+enable_last_update: false
+
+# Links
+link_type: icon #text/icon
+google_scholar: https://scholar.google.com/citations?user={scholar_id}&hl=en
+github_link: https://github.com/njit-research/
+linkedin: https://www.linkedin.com/in/{linkedin_handle}
+twitter: https://twitter.com/{twitter_handle}/
+imprint: https://www.njit.edu
+
+# Images 
+avatar: /assets/img/NJIT_Highlanders_logo.png
+
+# Footnotes
+enable_footnote: true
+author: Advanced Research Computing Services (ARCS), New Jersey Institute of Technology
+copyright: ARCS NJIT.
+
+# Last Update
+enable_last_update: true
+
+
+# Analytics
+# Please remove the following lines about analytics services if you fork my project. 
+# Otherwise, the analytics information of your website will be recorded to my ClustrMaps accounts.
+#clustrmaps_id: HV0rAUdAxpfEQLOsVs0FcJTR2rKVI5sEQUZIDM-N_HY
+
+# The following files will be removed from the generated website.
+exclude:
+  - build.sh
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - LICENSE
+  - CNAME
