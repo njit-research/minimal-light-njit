@@ -135,7 +135,7 @@
         
         {% if site.avatar %}
         <div class="image avatar">
-          <img src="{{ site.avatar }}" alt="Profile portrait of {{ site.title }}" />
+          <img src="{{ site.avatar | relative_url}}" alt="Profile portrait of {{ site.title }}" />
         </div>
         {% endif %}
 
