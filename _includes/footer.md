@@ -1,4 +1,10 @@
-	Powered by Jekyll and <a href="https://github.com/yaoyao-liu/minimal-light" target="_blank" rel="noopener">Minimal Light</a> theme modified by <br />
-    {{ site.author }} <br />
-    © {{ 'now' | date: '%Y' }} {{ site.copyright }} All rights reserved.
+<div style="font-family: 'Crimson Pro', serif; line-height: 1.5;">
+  <p style="margin: 0;">
+    <small>
+      Powered by Jekyll and the <a href="https://github.com/yaoyao-liu/minimal-light" target="_blank" rel="noopener" aria-label="View Minimal Light theme repository on GitHub">Minimal Light</a> theme (modified by ARCS).<br />
+      Maintained by {{ site.author }}.<br />
+      &copy; {{ 'now' | date: '%Y' }} {{ site.copyright | default: site.title }}. All rights reserved.
+    </small>
+  </p>
+</div>
 

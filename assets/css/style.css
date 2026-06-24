@@ -7,13 +7,35 @@ html {
 }
 
 body {
-  background-color: #ccc;
+  background-color: #f5f5f7; /* Increased from #ccc for better structural legibility background */
   padding: 0px;
   font: 16.5px/1.6 "Crimson Pro", serif;
-  color: #444;
+  color: #24292f; /* Darkened from #444 to meet WCAG AA contrast requirements */
   font-weight: 400;
   margin: 0;
+  /* Crucial changes for sticky footer: */
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
+}
+
+/* Skip link logic focus parameters */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background: #13294B;
+  color: white !important;
+  padding: 10px 20px;
+  z-index: 9999;
+  font-weight: bold;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid #0066aa;
 }
 
 .pub-row {
@@ -39,10 +61,35 @@ body {
   margin-right: 0;
 }
 
-.social-icons a:hover {
+.social-icons a:hover,
+.social-icons a:focus { /* Focus style added for accessibility keyboard controls */
   background-color: #13294B;
   color: #fff !important;
   transform: scale(1.15);
+  outline: none;
+}
+
+/* Converted Non-Standard HTML Selectors to Valid Class Formats */
+.profile-email {
+  font-size: 14px;
+  font-family: "Ubuntu Mono", monospace;
+  color: #24292f;
+}
+
+.profile-position {
+  font-size: 1.10rem;
+  font-weight: 500;
+  color: #57606a;
+}
+
+.profile-affiliation {
+  color: #595959;
+  font-weight: 500;
+}
+
+.profile-affiliation:hover,
+.profile-affiliation:focus {
+  color: #13294B;
 }
 
 .icon-button {
@@ -56,9 +103,6 @@ body {
   margin: 0 5px;
   position: relative;
   text-align: center;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   width: 3.6rem;
 }
@@ -71,40 +115,22 @@ body {
   margin: 0;
   position: absolute;
   top: 50%;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -o-transition: all 0.3s;
   transition: all 0.3s;
   width: 0;
 }
 
-.icon-button:hover span {
+.icon-button:hover span,
+.icon-button:focus span {
   width: 3.6rem;
   height: 3.6rem;
   border-radius: 3.6rem;
   margin: -1.8rem;
 }
 
-.twitter span {
-  background-color: #4099ff;
-}
-
-.facebook span {
-  background-color: #4286f4;
-}
-
-.linkedin span {
-  background-color: #0077B5;
-}
-
-.github span {
-  background-color: #000;
-}
-
-email {
-  font-size: 14px;
-  font-family: "Ubuntu Mono";
-}
+.twitter span { background-color: #4099ff; }
+.facebook span { background-color: #4286f4; }
+.linkedin span { background-color: #0077B5; }
+.github span { background-color: #000; }
 
 .icon-button i {
   background: none;
@@ -114,29 +140,15 @@ email {
   line-height: 3.6rem;
   position: absolute;
   top: 0;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -o-transition: all 0.3s;
   transition: all 0.3s;
   width: 3.6rem;
   z-index: 10;
 }
 
-.icon-button .icon-twitter {
-  color: #4099ff;
-}
-
-.icon-button .icon-facebook {
-  color: #4286f4;
-}
-
-.icon-button .icon-github {
-  color: #000;
-}
-
-.icon-button .icon-linkedin {
-  color: #0077B5;
-}
+.icon-button .icon-twitter { color: #4099ff; }
+.icon-button .icon-facebook { color: #4286f4; }
+.icon-button .icon-github { color: #000; }
+.icon-button .icon-linkedin { color: #0077B5; }
 
 .icon-button:hover .icon-twitter,
 .icon-button:hover .icon-facebook,
@@ -145,17 +157,8 @@ email {
   color: white;
 }
 
-autocolor {
-  color: #595959;
-}
-
-lightonly {
-  visibility: visible;
-}
-
-darkonly {
-  visibility: hidden;
-}
+lightonly { visibility: visible; }
+darkonly { visibility: hidden; }
 
 education {
   font-weight: 500;
@@ -174,28 +177,8 @@ papertitle {
   position: relative;
 }
 
-.image:before {
-  -moz-transition: opacity 0.2s ease-in-out;
-  -webkit-transition: opacity 0.2s ease-in-out;
-  -ms-transition: opacity 0.2s ease-in-out;
-  transition: opacity 0.2s ease-in-out;
-  border-radius: 0.35em;
-  content: '';
-  display: block;
-  height: 100%;
-  left: 0;
-  opacity: 0.5;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
-
 .image.avatar {
   border-radius: 100%;
-}
-
-.image.avatar:before {
-  display: none;
 }
 
 .image.avatar img {
@@ -248,31 +231,35 @@ a {
   transition: color 0.15s ease;
 }
 
-a:hover {
+a:hover,
+a:focus {
   color: #13294B;
+  text-decoration: underline; /* Clear visual differentiation indicator for WCAG accessibility pointer profiles */
 }
 
 a small {
   font-size: 11px;
-  color: #777;
+  color: #57606a;
   margin-top: -0.3em;
   display: block;
 }
 
-a:hover small {
-  color: #777;
-}
-
 .wrapper {
-  width: 100%; /*960px;*/
+  width: 100%;
   margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row; /* Desktop: Layout flows side-by-side */
+  flex-wrap: wrap;     /* Allows the footer to wrap to its own row at the bottom */
+  flex: 1;
 }
 
 blockquote {
-  border-left: 1px solid #e5e5e5;
+  border-left: 3px solid #13294B; /* Thickened and set accent theme color */
   margin: 0;
   padding: 0 0 0 20px;
   font-style: italic;
+  color: #57606a;
 }
 
 code, pre {
@@ -281,12 +268,14 @@ code, pre {
 }
 
 pre {
-  max-width: 500px;
-  padding: 8px 15px;
-  background: #f8f8f8;
+  width: 80%;             /* Allows the block to expand to full content width fluidly */
+  max-width: 80%;         /* Overrides the old 500px restriction completely */
+  padding: 12px 15px;      /* Slightly increased padding for enhanced readability */
+  background: #eaeef2;     /* Using your soft, eye-strain-friendly background tone */
   border-radius: 5px;
   border: 1px solid #e5e5e5;
-  overflow-x: auto;
+  overflow-x: auto;        /* Keeps safety scrolling active ONLY if code exceeds page limits */
+  box-sizing: border-box;  /* Ensures padding doesn't accidentally cause overflow */
 }
 
 table {
@@ -301,26 +290,26 @@ th, td {
 }
 
 dt {
-  color: #444;
+  color: #24292f;
   font-weight: 500;
 }
 
 th {
-  color: #444;
+  color: #24292f;
 }
 
 img {
   max-width: 100%;
+  height: auto;
 }
 
 header {
-  width: 25%; /*232px;*/
-  float: left;
-  position: fixed;
-  -webkit-font-smoothing: subpixel-antialiased;
+  width: 25%; /* Matches your original layout width */
+  box-sizing: border-box;
   padding-top: 5.5em;
   padding-left: 2em;
   text-align: center;
+  /* Removed "float: left" and "position: fixed" to prevent overlap */
 }
 
 header ul {
@@ -340,63 +329,27 @@ header li {
   height: 40px;
 }
 
-header li:first-child a {
-  border-radius: 5px 0 0 5px;
-}
-
-header li:last-child a {
-  border-radius: 0 5px 5px 0;
-}
-
-header ul a {
-  line-height: 1;
-  font-size: 11px;
-  color: #999;
-  display: block;
-  text-align: center;
-  padding-top: 6px;
-  height: 34px;
-}
-
-header ul a:hover {
-  color: #999;
-}
-
-header ul a:active {
-  background-color: #f0f0f0;
-}
-
 strong {
   color: #222;
   font-weight: 500;
 }
 
-header ul li+li+li {
-  border-right: none;
-  width: 89px;
-}
-
-header ul a strong {
-  font-size: 14px;
-  display: block;
-  color: #222;
-}
-
-section {
-  width: 65%; /* 650px; */
-  min-height: 600px;
-  float: right;
+/* Main block configuration mapped directly from default.html region landmark tag */
+main {
+  width: 75%; /* Expanded slightly to fill the rest of the flex row smoothly */
+  box-sizing: border-box;
   padding-top: 1.2em;
+  padding-right: 2em; /* Gives breathing room on the right side */
   padding-bottom: 120px;
-  flex: 1; /* Push footer to bottom */
+  flex: 1 0 auto;     /* Forces main to stretch vertically and push the footer down */
 }
 
-section ul li {
+main ul li {
   margin-bottom: 5px;
   line-height: 1.55;
 }
 
-section p {
+main p {
   line-height: 1.65;
 }
 
@@ -412,205 +365,111 @@ hr {
 }
 
 footer {
-  width: 100%; /*232px;*/
-  height: 70px;
-  float: left;
-  /* position: fixed; */
-  bottom: 10px;
-  -webkit-font-smoothing: subpixel-antialiased;
-  padding: 10px;
+  width: 100%;
+  padding: 20px;
   text-align: center;
-  color: white;
-  background-color: black;
+  color: #ffffff;
+  background-color: #24292f;
+  box-sizing: border-box;
+  margin-top: auto;   /* Pins it to the bottom of the viewport on short pages */
+  flex-basis: 100%;   /* Forces the footer to break onto its own full-width line */
 }
 
+footer a {
+  color: #69b3ff !important; /* Ensure readable contrast score on black footer backdrop */
+}
+
+/* ==========================================================================
+   Accessibility & Content Component Layout Additions
+   ========================================================================== */
+
+/* Standard WCAG utility class to hide content structurally but keep it accessible to screen readers */
+.visually-hidden {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
+}
+
+/* Base style behavior for the nested accessible news toggle layout */
+#newsmore {
+  max-height: 2000px; /* Synchronized to be visible on load */
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out;
+}
+
+#newsmore.open {
+  max-height: 0px; /* Retained state animation control parameters */
+}
+
+/* Ensure focus states on custom toggle buttons look sharp and clear */
+ul li button:focus {
+  outline: 2px solid #0066aa;
+  border-radius: 2px;
+}
+
+/* Address element style fallback overrides */
+address {
+  font-style: normal;
+  color: var(--global-text-color, #2c3e50);
+}
+
+/* ==========================================================================
+   Navigation Semantic List Normalization
+   ========================================================================== */
+
+/* Clean layout overrides for top bar lists to prevent vertical spacing shift */
+.topnav ul {
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+.topnav li {
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+  display: inline-block;
+}
+
+/* Ensure keyboard users get a crisp outline ring when tab-focusing nav items */
+.topnav a.normal:focus {
+  outline: 3px solid #ffffff;
+  outline-offset: -3px;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+
 @media print, screen and (max-width: 960px) {
-  .pub-row {
-    display: flex;
-    align-items: center;
-  }
   div.wrapper {
     width: auto;
     margin: 0;
   }
-  header, section, footer {
+  header, main, footer {
     float: none;
     position: static;
     width: auto;
   }
   header {
-    padding-top: 80px;
+    padding-top: 100px;
+    padding-left: 0;
   }
-  section {
-    border: 1px solid #e5e5e5;
-    border-width: 1px 0;
-    padding: 20px 0;
-    margin: 0 0 20px;
-  }
-  header a small {
-    display: inline;
-  }
-  header ul {
-    position: absolute;
-    right: 50px;
-    top: 52px;
-  }
-  .image.avatar img {
-    border-radius: 100%;
-    width: 117px;
-    padding: 4px;
-    border: 3px solid #FF5F05;
-    box-shadow: 0 4px 16px rgba(19, 41, 75, 0.18);
-  }
-  section {
+  main {
     padding: 20px 20px;
   }
-}
-
-@media print, screen and (max-width: 960px) {
-  body {
-    word-wrap: break-word;
-    padding: 0px;
-  }
-  .pub-row {
-    display: flex;
-    align-items: center;
-  }
-  pre, code {
-    word-wrap: normal;
-  }
-}
-
-@media print, screen and (max-width: 480px) {
-  .pub-row {
-    display: block;
-    align-items: center;
-  }
-  body {
-    padding: 0px;
-  }
-  header ul {
-    width: 99%;
-  }
-  header li, header ul li+li+li {
-    width: 33%;
-  }
   .image.avatar img {
-    border-radius: 100%;
-    width: 95px;
-    padding: 5px;
-    border: 1px solid #ddd;
-    box-shadow: 0 -1px 5px 1px rgba(200, 200, 200, 0.5);
+    width: 117px;
+  }
+  pre {
+    width: 100%;           /* Expand to use full width on narrow screens */
+    white-space: pre-wrap; /* Forces text to wrap to the next line instead of overflowing */
+    word-break: break-all; /* Allows long terminal commands to break at any character */
   }
 }
-
-@media print {
-  body {
-    padding: 0.4in;
-    font-size: 12pt;
-    color: #444;
-  }
-}
-
-.textsectionheader2 {
-  font-size: 1.1em;
-  font-weight: 600;
-  color: #13294B;
-  margin: 28px 0 4px;
-}
-
-.papericon {
-  border: 1.5px solid #13294B;
-  border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
-}
-
-.member-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 14px 8px 12px;
-  border-radius: 10px;
-  transition: background-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.member-card:hover {
-  background-color: #f5f7fa;
-  box-shadow: 0 4px 14px rgba(19, 41, 75, 0.12);
-}
-
-.member-card a {
-  font-weight: 600;
-}
-
-.memberrole {
-  font-size: 9pt;
-  color: #666;
-  line-height: 1.2;
-  margin-top: 3px;
-}
-
-.memberrole-line {
-  display: block;
-  line-height: 1.2;
-}
-
-.group-link {
-  display: inline-block;
-  margin-bottom: 24px;
-  font-family: 'Ubuntu Mono', monospace;
-  font-size: 0.85rem;
-  color: #13294B;
-  border: 1px solid #13294B;
-  border-radius: 5px;
-  padding: 4px 12px;
-  text-decoration: none;
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.group-link:hover {
-  background-color: #13294B;
-  color: #fff !important;
-  text-decoration: none;
-}
-
-.alumni-list {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  margin-top: 8px;
-  margin-bottom: 24px;
-}
-
-.alumni-entry {
-  padding: 5px 0;
-  font-size: 1em;
-}
-
-.alumni-entry .alumni-role {
-  font-size: 9pt;
-  color: #666;
-}
-
-.biblink {
-  text-decoration: none;
-  display: inline;
-  margin-right: 0px;
-}
-
-.fakelink {
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.bibref {
-  font-size: 70%;
-  margin-top: 10px;
-  margin-left: 0px;
-  display: none;
-  font-family: monospace;
-}
-
-
-

@@ -1,17 +1,9 @@
 main:
-
-  - title: "Teaching"
-    url: teaching/
-    right: true 
-
-  - title: "People"
-    url: people/
-
-  - title: "Publications"
-    url: publications/
-
-  - title: "Research"
-    url: research/
-
-  - title: "Home"
-    url: 
+  - title: Home
+    url: /
+  - title: Research
+    url: /research/
+  - title: Teaching
+    url: /teaching/
+  - title: Publications
+    url: /publications/
