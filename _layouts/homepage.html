@@ -4,7 +4,7 @@
     <title>{{ site.title }} | {{ site.affiliation }}</title>
 
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="{{ site.title }}">
     <meta name="keywords" content="{{ site.keywords }}">
 
@@ -25,15 +25,14 @@
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/pub.css">
-    <link rel="stylesheet" href="./assets/css/nav.css">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/pub.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/nav.css' | relative_url }}">
 
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
     
-    <script src="./assets/js/github-stars.js"></script>
-    <script type="text/javascript" src="./assets/js/jquery.js"></script>
-    <script src="./assets/js/favicon-switcher.js" type="application/javascript"></script>
+    <script type="text/javascript" src="../assets/js/jquery.js"></script>
+    <script src="{{ '/assets/js/favicon-switcher.js' | relative_url }}" type="application/javascript"></script>
 
     <style>
       #newsmore {
@@ -95,11 +94,11 @@
     <a href="#main-content" class="skip-link">Skip to main content</a>
     
     <nav class="topnav" role="navigation" aria-label="Main Navigation">
-      <a href="{{ site.affiliation_link }}" aria-label="Go to {{ site.affiliation }} Home">
-        <img width="120" src="{{ site.affiliation_logo }}" alt="{{ site.affiliation }} Logo">
+      <a href="{{ site.affiliation_link }}" aria-label="Go to {{ site.affiliation }} Website">
+        <img width="120" src="{{ '/assets/img/Logo_NJIT.png' | relative_url }}" alt="{{ site.affiliation }} Logo">
       </a>
 
-      <div id="myLinks">
+      <div id="myLinks" role="region" aria-label="Menu Links">
         {% include navigation-home.md %}
       </div>
 
@@ -111,12 +110,27 @@
       </a>
     </nav>
     
-    <script src="./assets/js/vanilla-back-to-top.min.js"></script>
-    <script>addBackToTop({
-        backgroundColor: '#fff',
-        innerHTML: 'Back to Top',
-        textColor: '#333'
-      })
+    <script src="{{ '/assets/js/vanilla-back-to-top.min.js' | relative_url }}"></script>
+    <aside aria-label="Back to top tool">
+      <button 
+        id="back-to-top" 
+        type="button" 
+        aria-label="Scroll back to the top of the page"
+        onclick="window.scrollTo({top: 0, behavior: 'smooth'});"
+        style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 99; border: 1px solid #ccc; background-color: #fff; color: #333; font-size: 15px; width: 100px; text-align: center; line-height: 30px; height: 30px; cursor: pointer;">
+        Back to Top
+      </button>
+    </aside>
+
+    <script type="text/javascript">
+      window.onscroll = function() {
+        var btn = document.getElementById("back-to-top");
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+          btn.style.display = "block";
+        } else {
+          btn.style.display = "none";
+        }
+      };
     </script>
     <style>
         #back-to-top {
@@ -135,7 +149,7 @@
         
         {% if site.avatar %}
         <div class="image avatar">
-          <img src="{{ site.avatar | relative_url}}" alt="Profile portrait of {{ site.title }}" />
+          <img src="{{ site.avatar | relative_url }}" alt="Profile portrait of {{ site.title }}" />
         </div>
         {% endif %}
 
@@ -146,7 +160,7 @@
         {% endif %}
         
         {% if site.affiliation %}
-        <a href="{{ site.affiliation_link }}" rel="noopener" class="profile-affiliation">
+        <a href="{{ site.affiliation_link }}" target="_blank" rel="noopener" class="profile-affiliation" aria-label="Visit the external website for {{ site.affiliation }}">
           <span>{{ site.affiliation }}</span>
         </a>
         <br>
@@ -167,41 +181,41 @@
 
         {% if site.link_type == 'icon' %}
         <div class="social-icons" style="display: flex; gap: 8px;">
-          {% if site.google_scholar %}
-          <a href="{{ site.google_scholar }}" aria-label="Google Scholar Profile">
-            <i class="ai ai-google-scholar" style="font-size:1.2rem" aria-hidden="true"></i>
-          </a>  
-          {% endif %}
+        {% if site.google_scholar %}
+        <a href="{{ site.google_scholar }}" aria-label="Google Scholar Profile">
+          <i class="ai ai-google-scholar" style="font-size:1.2rem" aria-hidden="true"></i>
+        </a>  
+        {% endif %}
 
-          {% if site.cv_link %}
-          <a href="{{ site.cv_link }}" aria-label="Download Curriculum Vitae">
-            <i class="ai ai-cv" style="font-size:1.3rem;" aria-hidden="true"></i>
-          </a>
-          {% endif %}
+        {% if site.cv_link %}
+        <a href="{{ site.cv_link }}" aria-label="Download Curriculum Vitae">
+          <i class="ai ai-cv" style="font-size:1.3rem;" aria-hidden="true"></i>
+        </a>
+        {% endif %}
 
-          {% if site.github_link %}
-          <a href="{{ site.github_link }}" aria-label="GitHub Profile">
-            <i class="fab fa-github" aria-hidden="true"></i>
-          </a>
-          {% endif %}
+        {% if site.github_link %}
+        <a href="{{ site.github_link }}" aria-label="GitHub Profile">
+          <i class="fab fa-github" aria-hidden="true"></i>
+        </a>
+        {% endif %}
 
-          {% if site.linkedin %}
-          <a href="{{ site.linkedin }}" aria-label="LinkedIn Profile">
-            <i class="fab fa-linkedin" aria-hidden="true"></i>
-          </a>
-          {% endif %}
+        {% if site.linkedin %}
+        <a href="{{ site.linkedin }}" aria-label="LinkedIn Profile">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+        {% endif %}
 
-          {% if site.twitter %}
-          <a href="{{ site.twitter }}" aria-label="X / Twitter Account">
-            <i class="fab fa-x-twitter" aria-hidden="true"></i>
-          </a>
-          {% endif %}
+        {% if site.twitter %}
+        <a href="{{ site.twitter }}" aria-label="X / Twitter Account">
+          <i class="fab fa-x-twitter" aria-hidden="true"></i>
+        </a>
+        {% endif %}
 
-          {% if site.bluesky %}
-          <a href="{{ site.bluesky }}" aria-label="Bluesky Account">
-            <i class="fab fa-bluesky" aria-hidden="true"></i>
-          </a>
-          {% endif %}
+        {% if site.bluesky %}
+        <a href="{{ site.bluesky }}" aria-label="Bluesky Account">
+          <i class="fab fa-bluesky" aria-hidden="true"></i>
+        </a>
+        {% endif %}
         </div>
         {% endif %}
         <br>
@@ -233,9 +247,6 @@
         <div style="font: 18px/1.5 Crimson Pro, serif">
           <p>
             <small>
-              {% if site.data_protection %}
-              <a href="{{ site.data_protection }}" rel="noopener">Data Protection / Datenschutzhinweis</a>
-              {% endif %}
               {% if site.enable_footnote %}
               {% include_relative _includes/footer.md %}
               {% endif %}

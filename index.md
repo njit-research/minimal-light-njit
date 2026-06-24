@@ -18,7 +18,7 @@ This is a template for building a website on NJIT's Github Enterprise Cloud powe
 * Modify the `_config.yml` file with your information. 
 * If you do not want the google scholar, github, linkedin, twitter on the left sidebar, feel free to comment those lines.
 * Currently the Highlanders logo is used as your profile picture. Copy your profile picture to assets/img and replace `NJIT_Highlanders_logo.png` with the name of the profile picture.  
-* This website is build on Jekyll using the [minimal light](https://github.com/yaoyao-liu/minimal-light) theme of [Yaoyao Liu](https://yaoyaoliu.cs.illinois.edu) modified by ARCS.
+* This website is built on Jekyll using the <a href="https://github.com/yaoyao-liu/minimal-light" aria-label="GitHub repository for the Minimal Light Jekyll theme">minimal light</a> theme originally created by <a href="https://yaoyaoliu.cs.illinois.edu" aria-label="Personal academic website of Yaoyao Liu">Yaoyao Liu</a> and modified by ARCS.
   * Please keep this attribution as is by not modifying the author line in the Footnote section. 
   * Please free to change/comment the copyright line.
 

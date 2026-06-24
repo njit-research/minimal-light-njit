@@ -6,7 +6,7 @@
   University Heights,<br />
   Newark, NJ 07102<br />
   Phone: <a href="tel:+9735963000" aria-label="Call University Contact Phone Number">(973) 596-3000</a><br />
-  Office Location: <a href="http://maps.google.com/?q=GITC+Newark+NJ" target="_blank" rel="noopener" aria-label="View GITC building location on Google Maps">GITC via Google Maps</a>
+  Office Location: <a href="https://maps.google.com/?q=NJIT+GITC+Building" target="_blank" rel="noopener" aria-label="View GITC building location on Google Maps">GITC via Google Maps</a>
 </address>
 
 
