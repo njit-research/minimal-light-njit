@@ -1,3 +1,4 @@
+<style> .tabnav-focus-fix-1:focus { outline: 2px solid red; outline-offset: 2px; } </style> 
 <ul style="list-style: none; padding: 0; margin: 0; display: inline-flex; float: right;">
   {% for link in site.data.navigation.main %}
     <li style="display: inline-block;">
