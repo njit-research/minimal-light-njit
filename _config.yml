@@ -6,13 +6,14 @@ affiliation_link: https://www.njit.edu/
 affiliation_logo: ./assets/img/Logo_NJIT.png
 email: high_lander (at) njit.edu
 
+# Destination Base URLs for Subfolder Routing
+url: "https://sites.njit.edu"
+baseurl: "/minimal-light-njit"
+
 # Search Engine Optimization (SEO)
 keywords: NJIT Faculty Template
-canonical: https://sites.njit.edu
+canonical: "https://sites.njit.edu/minimal-light-njit"
 description: HighLander is NJIT's mascot 
-
-# The option is used to show the last update time.
-enable_last_update: false
 
 # Links
 link_type: icon #text/icon
@@ -32,7 +33,6 @@ copyright: ARCS NJIT.
 
 # Last Update
 enable_last_update: true
-
 
 # Analytics
 # Please remove the following lines about analytics services if you fork my project. 
