@@ -11,7 +11,7 @@
   </li>
 
   <li style="list-style: none; margin-top: 10px;">
-    <button type="button" onclick="toggleVis(this); return false;" aria-expanded="true" aria-controls="newsmore" style="background: none; border: none; color: #0066aa; font-weight: bold; cursor: pointer; padding: 0; font-size: 1rem; text-decoration: underline;">
+    <button type="button" onclick="toggleVis(this); return false;" aria-label="Show less news items" aria-expanded="true" aria-controls="newsmore" style="background: none; border: none; color: #0066aa; font-weight: bold; cursor: pointer; padding: 0; font-size: 1rem; text-decoration: underline;">
       Show less
     </button>
   </li>
