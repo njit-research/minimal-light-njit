@@ -1,4 +1,18 @@
-# yaoyao-liu.github.io
+# minimal-light-njit
+
+[![LICENSE](https://img.shields.io/github/license/yaoyao-liu/homepage?style=flat-square&logo=creative-commons&color=EF9421)](https://github.com/njit-research/minimal-light-njit/blob/main/LICENSE)
+
+NJIT Faculty website template developed for use on github pages. This template is based on the Jekyll theme [minimal-light](https://github.com/yaoyao-liu/minimal-light) originally developed by [Yaoyao Liu's](https://yaoyaoliu.csl.illinois.edu/). The current template has been designed to meet with WCAG 2.1 Level AA standards to comply with ADA, Section 508, and related laws. The current version of this template (as of June 25th) reported no errors or critical issues from quick scans by [ADA Quick Scan](https://adaquickscan.com/), [Accessibility Checker](https://www.accessibilitychecker.org/) and [WAVE Web Accessibility Evaluation Tools](https://wave.webaim.org/). 
+
+Please feel free to use this template to build your own site. However, **you need to ensure that any changes you make to this template for your site complies with ADA, Section 508 and related laws.** This template does not imply compliance with these laws.
+
+     
+Below is the original README from Yaoyao
+
+====
+
+
+## yaoyao-liu.github.io
 
 [![LICENSE](https://img.shields.io/github/license/yaoyao-liu/homepage?style=flat-square&logo=creative-commons&color=EF9421)](https://github.com/yaoyao-liu/homepage/blob/main/LICENSE)
 
