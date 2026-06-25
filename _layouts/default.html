@@ -31,7 +31,7 @@
 
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
     
-    <script type="text/javascript" src="../assets/js/jquery.js"></script>
+    <script type="text/javascript" src="{{ '/assets/js/jquery.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/favicon-switcher.js' | relative_url }}" type="application/javascript"></script>
 
     <script type="text/javascript">
@@ -80,9 +80,13 @@
     
     <!-- Add role and semantic nav landmark -->
     <nav class="topnav" role="navigation" aria-label="Main Navigation">
-      <a href="{{ site.affiliation_link }}" aria-label="Go to {{ site.affiliation }} Website">
-        <img width="120" src="{{ '/assets/img/Logo_NJIT.png' | relative_url }}" alt="{{ site.affiliation }} Logo">
-      </a>
+      <div class="nav-branding-container">
+        <a href="{{ site.affiliation_link }}" aria-label="Go to {{ site.affiliation }} Website">
+          <img width="120" src="{{ '/assets/img/Logo_NJIT.png' | relative_url }}" alt="{{ site.affiliation }} Logo">
+        </a>
+        <span class="nav-divider" aria-hidden="true"></span>
+        <span class="nav-page-title">{{ page.title }}</span>
+      </div>
 
       <div id="myLinks" role="region" aria-label="Menu Links">
         {% include navigation.md %}
@@ -97,7 +101,6 @@
       </a>
     </nav>
     
-    <script src="{{ '/assets/js/vanilla-back-to-top.min.js' | relative_url }}"></script>
     <aside aria-label="Back to top tool">
       <button 
         id="back-to-top" 
@@ -169,7 +172,7 @@
 
         {% if site.link_type == 'icon' %}
         <!-- Added explicit aria-labels and hid background decoration vectors -->
-        <div class="social-icons" style="display: flex; gap: 8px;">
+        <div class="social-icons" style="display: flex; gap: 8px; justify-content: center; align-items: center; width: 100%; margin: 10px auto;">
         {% if site.google_scholar %}
         <a href="{{ site.google_scholar }}" aria-label="Google Scholar Profile">
           <i class="ai ai-google-scholar" style="font-size:1.2rem" aria-hidden="true"></i>

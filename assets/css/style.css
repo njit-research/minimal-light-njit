@@ -421,55 +421,43 @@ address {
   color: var(--global-text-color, #2c3e50);
 }
 
-/* ==========================================================================
-   Navigation Semantic List Normalization
-   ========================================================================== */
-
-/* Clean layout overrides for top bar lists to prevent vertical spacing shift */
-.topnav ul {
-  margin: 0 !important;
-  padding: 0 !important;
-  list-style: none !important;
-}
-
-.topnav li {
-  margin: 0 !important;
-  padding: 0 !important;
-  list-style: none !important;
-  display: inline-block;
-}
-
-/* Ensure keyboard users get a crisp outline ring when tab-focusing nav items */
-.topnav a.normal:focus {
-  outline: 3px solid #ffffff;
-  outline-offset: -3px;
-  background-color: rgba(255, 255, 255, 0.15);
-}
-
 
 @media print, screen and (max-width: 960px) {
   div.wrapper {
-    width: auto;
+    width: 100%;       /* Swapped auto for an explicit full viewport boundary */
+    max-width: 100%;   /* Enforces that the wrapper cannot exceed screen width */
     margin: 0;
+    overflow-x: hidden; /* Prevents hidden runaway margins from creating ghost scrolling */
   }
   header, main, footer {
     float: none;
     position: static;
-    width: auto;
+    width: 100%;       /* Force blocks to consume exactly 100% of parent width */
+    box-sizing: border-box; /* Crucial: ensures paddings don't expand elements beyond 100% */
   }
   header {
     padding-top: 100px;
     padding-left: 0;
+    text-align: center;    /* Forces text, icons, and inline anchors to center wrap */
   }
   main {
     padding: 20px 20px;
+    box-sizing: border-box;
   }
   .image.avatar img {
     width: 117px;
   }
   pre {
-    width: 100%;           /* Expand to use full width on narrow screens */
-    white-space: pre-wrap; /* Forces text to wrap to the next line instead of overflowing */
-    word-break: break-all; /* Allows long terminal commands to break at any character */
+    width: 100%;           
+    white-space: pre-wrap; 
+    word-break: break-all; 
+    box-sizing: border-box;
+  }
+  
+  /* Catch-all to force all images and table contents to remain responsive */
+  img, table, iframe {
+    max-width: 100% !important;
+    height: auto !important;
   }
 }
+

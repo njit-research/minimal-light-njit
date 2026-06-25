@@ -9,6 +9,24 @@
   left: 0;
 }
 
+/* ==========================================================================
+   Navigation Semantic List Normalization
+   ========================================================================== */
+
+/* Clean layout overrides for top bar lists to prevent vertical spacing shift */
+.topnav ul {
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+.topnav li {
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+  display: inline-block;
+}
+
 .topnav #myLinks {
   display: inline;
 }
@@ -18,9 +36,9 @@
 }
 
 .topnav img {
-  width: 60px;
+  width: 90px;
   margin-bottom: 0pt;
-  margin-top: 5px;   /* Cleaned up vertical alignment slightly */
+  margin-top: 15px;   /* Cleaned up vertical alignment slightly */
   margin-left: 0;    /* Completely strips out the 30% push */
   padding-left: 15px; /* Safely aligns it with your main layout columns */
   vertical-align: middle;
@@ -39,11 +57,12 @@
 }
 
 /* Change the color of links on hover and focus action */
+/* Ensure keyboard users get a crisp outline ring when tab-focusing nav items */
 .topnav a.normal:hover,
 .topnav a.normal:focus {
-  background-color: #ffffff;
-  color: #d8272d !important;
-  outline: none;
+  outline: 3px solid #ffffff;
+  outline-offset: -3px;
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 .topnav a.right {
@@ -135,6 +154,48 @@
   }
 }
 
+/* ==========================================================================
+   Navigation Bar Header Branding (Logo + Vertical Line + Title)
+   ========================================================================== */
+.nav-branding-container {
+  display: flex;
+  align-items: center; /* Vertically centers the logo, line, and text */
+  gap: 12px;           /* Puts clean, even spacing between the elements */
+  flex-shrink: 0;      /* Crucial: Prevents this entire block from being squished */
+}
+
+.nav-divider {
+  display: inline-block;
+  width: 1px;
+  height: 24px;        /* Adjust this height to match your logo scale nicely */
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.nav-page-title {
+  font-family: "Source Sans 3", sans-serif; /* Clean sans-serif accent style */
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #ffffff;      /* Verified White Color */
+  white-space: nowrap; /* Crucial: Prevents long page titles from forcing an internal line break */
+}
+
+/* Fix the structural top navigation wrapper to enforce single-row alignment */
+nav.topnav {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important; /* Pushes branding to left, menu items to right */
+  align-items: center !important;
+  flex-wrap: nowrap !important; /* Crucial: Explicitly bans the nav items from dropping down */
+}
+
+/* Force your navigation links block to stay inline as well */
+#myLinks {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  margin-left: auto; /* Dynamically sucks links over to the right hand side */
+}
+
 /* Scaled Viewport Media Enhancements */
 @media print, screen and (max-width: 1000px) and (min-width: 961px) {
   .topnav a.right { margin-right: 3%; }
@@ -148,7 +209,15 @@
 @media print, screen and (max-width: 960px) {
   .topnav img {
     margin-left: 15px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 15px;
+    margin-bottom: 0px;
+  }
+}
+
+/* Mobile Tweak: If the screen gets too small, hide the title to prevent crowded text wrapping */
+@media screen and (max-width: 480px) {
+  .nav-divider, 
+  .nav-page-title {
+    display: none !important;
   }
 }
