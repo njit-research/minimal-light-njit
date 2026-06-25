@@ -20,7 +20,7 @@ This is a template for building a website on NJIT's Github Enterprise Cloud powe
 * Currently the Highlanders logo is used as your profile picture. Copy your profile picture to assets/img and replace `NJIT_Highlanders_logo.png` with the name of the profile picture.  
 
 
-This website is built on Jekyll using the [minimal light](https://github.com/yaoyao-liu/minimal-light) them originaly created by [Yaoyao Liu](https://yaoyaoliu.cs.illinois.edu) and modified by ARCS. Please keep this attribution as is by not modifying the author line in the Footnote section.  Please free to change/comment the copyright line.
+This website is built on Jekyll using the minimal light them originaly created by Yaoyao Liu and modified by ARCS. Please keep this attribution in the footer by not modifying the author line in the Footnote section of the `_config.yml` file.  Please free to change/comment the copyright line.
 
 
 ### Content
