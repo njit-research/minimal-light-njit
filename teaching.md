@@ -4,7 +4,7 @@ title: Teaching
 permalink: /teaching/
 ---
 
-<h1 style="margin: 40px 0px 20px;">Teaching</h1>
+<h2 style="margin: 40px 0px 20px;">Teaching</h2>
 
 <p>List the courses you are teaching or have taught in the past:</p>
 
