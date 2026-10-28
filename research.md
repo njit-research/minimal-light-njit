@@ -4,7 +4,7 @@ title: Research
 permalink: /research/
 ---
 
-<h1 style="margin: 40px 0px 20px;">Research</h1>
+<h2 style="margin: 40px 0px 20px;">Research</h2>
 
 ## Projects
 

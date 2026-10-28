@@ -4,7 +4,7 @@ title: Publications
 permalink: /publications/
 ---
 
-<h1 style="margin: 40px 0px 20px;">Publications</h1>
+<h2 style="margin: 40px 0px 20px;">Publications</h2>
 
 <p>List your publications, presentations, conference proceedings, etc.</p>
 

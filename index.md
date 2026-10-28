@@ -2,8 +2,6 @@
 layout: homepage
 ---
 
-<h1 class="visually-hidden">About My Research and Portfolio</h1>
-
 <h2 style="margin: 40px 0px 10px;">About this template</h2>
 
 This is a template for building a website on NJIT's Github Enterprise Cloud powered by Jekyll and the Minimal Light theme. To build your website using this template, fork this repository and name it, preferably,  _ucid_ or _firstname.lastname_. The url for the rendered website will be either https://sites.njit.edu/repositoryname
